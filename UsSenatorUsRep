@@ -1,0 +1,74 @@
+/***********************************************************************
+  FileName -  A program that accepts a person's age and years of citizenship as input and outputs their eligibility for the Senate and House.
+*************************************************************************/
+#include <stdio.h>
+
+int main(void) {
+
+int age, years, choose; // declare variables
+
+// Welcome user to program
+printf("This Program Tells the User If He/She is Eligible To Be an\n US Sentator or Representative. \n");
+
+// User input for age
+printf ("Enter your age: ");
+
+// Input validation for age
+while (scanf("%i", &age) != 1){
+  
+ while ( getchar() != '\n' ) 
+
+printf("You Enter An Incorrect Age.\n");
+printf("Please Start Program Over. \nEND\n");
+}
+
+// User input for years of citizenship
+printf("Please Enter Years of Citizenship\n");
+
+// Input validation for years of citizenship
+while (scanf("%i", &years) != 1){
+  
+ while ( getchar() != '\n' ); 
+
+printf("You Enter An Incorrect Year.\n");
+printf("Please Start Program Over. \nEND\n");
+
+}
+// if statements
+if (age <= 17 || years <= 0 || years > age) {
+  printf("You encountered one of the following errors\n");
+  printf("Age must be at least 18.\n");
+  printf("The number of years of citizenship must be at least 1.\n");
+  printf("Years of citizenship can not be OVER age\n");
+  printf("Please Start Program Over.\n");
+}
+
+else if(age >= 30 && years >= 9) {
+  printf("You are eligible to be an Us Senator or an Us Respresentative\n");
+  printf("Choose 1 for Us Senator 2 for Us Respresentative.\n");
+scanf("%i", &choose);
+
+    if(choose < 1 || choose >2) {
+  printf("Incorrect choice\n");
+  printf("Please Start Over\n");
+    }
+      if(choose == 1) {
+      printf("You are an Us Senator Congrats!\n");
+      }
+      else if (choose == 2) {
+      printf("You are an Us Respresentative Congrats!\n");
+      }   
+
+}
+
+else if(age >= 25 && years >= 7) {
+  printf("You are eligible to be an Us Respresentative\n");
+}
+
+else if (age >= 18 && years >= 1) {
+  printf("Not Eligible For Senate and House\n");
+}
+
+printf("End of Program\n");
+  return 0;
+}
